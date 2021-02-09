@@ -75,3 +75,8 @@ def test_action_add():
 def test_set_name():
     t = Thing(3)
     t.set_name("bidule")
+
+def test_repr():
+    t = Thing(3)
+    t.set_name("bidule")
+    assert repr(t) == "bidule"

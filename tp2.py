@@ -81,3 +81,5 @@ class Thing:
     def set_name(self,nom):
         self._name = nom
     
+    def __repr__(self):
+        return self._name
