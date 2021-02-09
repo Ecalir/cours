@@ -73,7 +73,11 @@ class Box:
 class Thing:
     def __init__(self,volume):
         self._volume = volume
+        self._name = ""
     
     def volume(self):
         return self._volume
+    
+    def set_name(self,nom):
+        self._name = nom
     

@@ -71,3 +71,7 @@ def test_action_add():
     b.set_capacity(50)
     b.close()
     assert not b.action_add(t)
+
+def test_set_name():
+    t = Thing(3)
+    t.set_name("bidule")
