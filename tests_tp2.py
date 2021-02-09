@@ -17,6 +17,7 @@ def test_remove():
     b = Box()
     b.add("truc1")
     b.remove("truc1")
+    assert "truc1" not in b
 
 def test_ouverture_fermeture():
     b = Box()
@@ -39,9 +40,13 @@ def test_thing_create():
 
 def test_volume():
     b = Thing(3)
-    assert b.capacity() == 3
+    assert b.volume() == 3
+
+def test_capacity():
+    b = Box()
+    assert b.capacity() == None
 
 def test_set_capacity():
-    b = Thing(3)
+    b = Box()
     b.set_capacity(5)
     assert b.capacity() == 5

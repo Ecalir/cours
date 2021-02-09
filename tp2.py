@@ -2,6 +2,7 @@ class Box:
     def __init__(self):
         self._contents = []
         self._ouvert = False
+        self._capacity = None
 
     def __contains__(self,valeur):
         return valeur in self._contents
@@ -29,12 +30,16 @@ class Box:
             resultat = "La boite est fermée."
         return resultat
 
+    def set_capacity(self,nouveau_volume):
+        self._capacity = nouveau_volume
+    
+    def capacity(self):
+        return self._capacity
+
 class Thing:
     def __init__(self,volume):
         self._volume = volume
     
-    def capacity(self):
+    def volume(self):
         return self._volume
     
-    def set_capacity(self,nouveau_volume):
-        self._volume = nouveau_volume
