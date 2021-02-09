@@ -56,14 +56,17 @@ class Box:
         return resultat
 
     def action_add(self,valeur):
-        resultat = True
-        if self._capacity == None:
-            self.add(valeur)
-        elif self._capacity >= valeur.volume():
-            self.add(valeur)
-            self._capacity -= valeur.volume()
-        else:
+        if self._ouvert == False:
             resultat = False
+        else:
+            resultat = True
+            if self._capacity == None:
+                self.add(valeur)
+            elif self._capacity >= valeur.volume():
+                self.add(valeur)
+                self._capacity -= valeur.volume()
+            else:
+                resultat = False
         return resultat
 
 

@@ -61,10 +61,13 @@ def test_has_room_for():
 def test_action_add():
     b = Box()
     t = Thing(3)
+    b.open()
     assert b.action_add(t) # Test si capacity = None (illimité)
     b.set_capacity(2)
     assert not b.action_add(t) # Test si capacity < taille de l'objet
     b.set_capacity(5)
     b.action_add(t)
     assert not b.action_add(t) # Test si la place restante est inférieure à la taille de l'objet
-    
+    b.set_capacity(50)
+    b.close()
+    assert not b.action_add(t)
