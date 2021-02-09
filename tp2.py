@@ -20,3 +20,11 @@ class Box:
     
     def open(self):
         self._ouvert = True
+    
+    def action_look(self):
+        resultat = "La boite contient: "
+        if self._ouvert == True:
+            resultat += ", ".join(self._contents)
+        else:
+            resultat = "La boite est fermée."
+        return resultat

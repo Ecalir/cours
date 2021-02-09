@@ -10,7 +10,8 @@ def test_box_add():
 def test_contains():
     b = Box()
     b.add("truc1")
-    "truc2" in b
+    assert not "truc2" in b
+    assert "truc1" in b
 
 def test_remove():
     b = Box()
@@ -19,6 +20,16 @@ def test_remove():
 
 def test_ouverture_fermeture():
     b = Box()
-    b.is_open()
-    b.close()
+    assert not b.is_open()
     b.open()
+    assert b.is_open()
+    b.close()
+    assert not b.is_open()
+
+def test_action_look():
+    b = Box()
+    b.add("truc1")
+    b.add("truc2")
+    assert b.action_look() == "La boite est fermée."
+    b.open()
+    assert b.action_look() == "La boite contient: truc1, truc2"
