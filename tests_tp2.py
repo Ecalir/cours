@@ -102,14 +102,12 @@ def test_find():
 
 def test_list_from_yaml():
     text = """
-    - type: Box
-    is_open: True
-    capacity: 3
-    - type: Thing
-    volume: 2
-    name: "bonjour"
+    -   type: Box
+        is_open: True
+        capacity: 3
+    -   type: Thing
+        volume: 2
+        name: "bonjour"
     """
-    stream = io.StringIO(text)
-    liste = yaml.load(stream)
-    list_from_yaml(liste)
+    list_from_yaml(text)
     
