@@ -32,6 +32,7 @@ class Box:
         self._contents = []
         self._ouvert = is_open
         self._capacity = capacity
+        self._cle = None
     
     @staticmethod
     def from_yaml(data):
@@ -70,6 +71,9 @@ class Box:
     
     def set_capacity(self,nouveau_volume):
         self._capacity = nouveau_volume
+
+    def set_key(self, objet):
+        self._cle = objet
 
     # ===============
     # Méthodes
@@ -115,6 +119,9 @@ class Box:
     def __repr__(self):
         return str(self._contents) +" "+ str(self._ouvert) +" "+ str(self._capacity)
 
+    def open_with(self, objet):
+        if self._cle == None or self._cle == objet:
+            self._ouvert = True
 
 
 class Thing:
