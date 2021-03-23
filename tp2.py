@@ -67,7 +67,8 @@ class Box:
         self._ouvert = False
     
     def open(self):
-        self._ouvert = True
+        if self._cle == None:
+            self._ouvert = True
     
     def set_capacity(self,nouveau_volume):
         self._capacity = nouveau_volume
